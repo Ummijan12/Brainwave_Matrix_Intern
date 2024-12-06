@@ -178,52 +178,96 @@ class TaskDetailsScreen extends StatelessWidget {
   void _showToggleConfirmationDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (context) => Dialog(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        title: Row(
-          children: [
-            Icon(
-              Icons.help_outline,
-              color: Theme.of(context).colorScheme.secondary,
-            ),
-            const SizedBox(width: 8),
-            Text(
-              "Change Task Status",
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-          ],
-        ),
-        content: Text(
-          todo.isCompleted
-              ? "Are you sure you want to mark this task as incomplete?"
-              : "Are you sure you want to mark this task as completed?",
-          style: Theme.of(context).textTheme.bodyMedium,
-        ),
-        actions: [
-          TextButton(
-            style: TextButton.styleFrom(
-              foregroundColor: Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(0.6),
-            ),
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text("Cancel"),
-          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Theme.of(context).colorScheme.secondary,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 15,
+                spreadRadius: 5,
               ),
-            ),
-            onPressed: () {
-              Provider.of<TodoProvider>(context, listen: false)
-                  .toggleTodoStatus(todo.id);
-              Navigator.of(context).pop();
-            },
-            child: const Text("Confirm"),
+            ],
           ),
-        ],
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 80,
+                height: 80,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.secondary.withOpacity(0.1),
+                  shape: BoxShape.circle,
+                ),
+                child: Center(
+                  child: Icon(
+                    todo.isCompleted
+                        ? Icons.restart_alt_rounded
+                        : Icons.check_circle_outline,
+                    color: Theme.of(context).colorScheme.secondary,
+                    size: 48,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              Text(
+                "Change Task Status",
+                style: Theme.of(context).textTheme.titleMedium,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 12),
+
+              Text(
+                todo.isCompleted
+                    ? "Are you sure you want to mark this task as incomplete? This will move the task back to your active tasks."
+                    : "Are you sure you want to mark this task as completed? This will move the task to your completed list.",
+                style: Theme.of(context).textTheme.bodyMedium,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 24),
+
+              Row(
+                children: [
+                  Expanded(
+                    child: OutlinedButton(
+                      onPressed: () => Navigator.of(context).pop(),
+
+                      child: Text(
+                        "Cancel",
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Provider.of<TodoProvider>(context, listen: false)
+                            .toggleTodoStatus(todo.id);
+                        Navigator.of(context).pop();
+                      },
+
+                      child: Text(
+                        "Confirm",
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

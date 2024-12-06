@@ -15,7 +15,15 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const HomeScreen()),
+        PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 500),
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return FadeTransition(
+              opacity: animation,
+              child: const HomeScreen(),
+            );
+          },
+        ),
       );
     });
   }
@@ -28,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
+            const Icon(
               Icons.checklist_rounded,
               size: 120,
               color: Colors.white,
@@ -36,8 +44,8 @@ class _SplashScreenState extends State<SplashScreen> {
               duration: 1000.ms,
               curve: Curves.elasticOut,
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Todo Master',
               style: TextStyle(
                 color: Colors.white,

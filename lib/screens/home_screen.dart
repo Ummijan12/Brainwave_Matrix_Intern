@@ -22,10 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Todo Master'),
+        title: const Text('Todo Master'),
         actions: [
           IconButton(
-            icon: Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert),
             onPressed: () {
               // Show the Bottom Sheet with options
               showModalBottomSheet(
@@ -55,7 +55,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                           ),
                         ),
-                        // Settings Option
+                        const Divider(thickness: 2,),
+
                         ListTile(
                           leading:
                               const Icon(Icons.settings, color: Colors.blue),
@@ -72,7 +73,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             );
                           },
                         ),
-                        // About Option
                         ListTile(
                           leading: const Icon(Icons.info_outline,
                               color: Colors.green),
@@ -89,6 +89,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             );
                           },
                         ),
+                        const Divider(thickness: 2,),
+                        const SizedBox(height: 50,)
                       ],
                     ),
                   );
