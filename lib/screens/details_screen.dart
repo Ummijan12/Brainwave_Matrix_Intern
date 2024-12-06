@@ -252,6 +252,7 @@ class TaskDetailsScreen extends StatelessWidget {
                         Provider.of<TodoProvider>(context, listen: false)
                             .toggleTodoStatus(todo.id);
                         Navigator.of(context).pop();
+                        Navigator.of(context).pop();
                       },
 
                       child: Text(
