@@ -1,20 +1,26 @@
-# todo_internship
+# Todo Master
 
-A new Flutter project.
+Todo Master is a feature-rich Flutter-based task management application designed to enhance personal productivity. It combines modern design, smooth animations, and powerful functionality to help users manage their tasks efficiently.
+
+## Features
+
+- Modern Design: A sleek and intuitive user interface.
+- Smooth Animations: Enhanced user experience with smooth transitions.
+- Offline Storage: Tasks are stored locally using Hive for fast and reliable access.
+- Priority-based Task Tracking: Assign priorities to tasks to stay organized.
+- Backup and Restore: Securely back up tasks and restore them whenever needed.
+- Dynamic App Version Display: Easily view the app version in the settings.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To get started with Todo Master, follow these steps:
 
-A few resources to get you started if this is your first Flutter project:
+### Prerequisites
+- Install Flutter: https://docs.flutter.dev/get-started/install
+- Set up a supported IDE like Android Studio or VS Code.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
+### Installation
+1. Clone the repository.
 ---
 
 ## About Me
