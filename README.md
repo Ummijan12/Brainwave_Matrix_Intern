@@ -8,7 +8,6 @@ Todo Master is a feature-rich Flutter-based task management application designed
 - Smooth Animations: Enhanced user experience with smooth transitions.
 - Offline Storage: Tasks are stored locally using Hive for fast and reliable access.
 - Priority-based Task Tracking: Assign priorities to tasks to stay organized.
-- Backup and Restore: Securely back up tasks and restore them whenever needed.
 - Dynamic App Version Display: Easily view the app version in the settings.
 
 ## Getting Started
